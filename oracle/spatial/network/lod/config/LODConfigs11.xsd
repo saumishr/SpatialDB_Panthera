@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.oracle.com/spatial/network/lod"
+            targetNamespace="http://www.oracle.com/spatial/network/lod"
+            elementFormDefault="qualified">
+  <xsd:element name="LODConfigs" type="LODConfigs"/>
+  <xsd:complexType name="LODConfigs">
+    <xsd:sequence>
+      <xsd:element name="defaultLODConfig" type="defaultLODConfig"
+                   nillable="false" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="networkLODConfig" type="networkLODConfig"
+                   nillable="false" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="defaultLODConfig">
+    <xsd:sequence>
+      <xsd:element name="LODConfig" type="LODConfig" nillable="false"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="networkLODConfig">
+    <xsd:sequence>
+      <xsd:element name="networkName" type="xsd:string" nillable="false"/>
+      <xsd:element name="LODConfig" type="LODConfig" nillable="false"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="LODConfig">
+    <xsd:sequence>
+      <xsd:element name="readPartitionFromBlob" type="xsd:boolean"
+                   nillable="false" default="true"/>
+      <xsd:element name="partitionBlobTranslator" type="xsd:string"
+                   nillable="false" minOccurs="0"
+                   default="oracle.spatial.network.lod.PartitionBlobTranslator11g"/>
+      <xsd:element name="userDataIO" type="xsd:string"
+                   nillable="false" minOccurs="0"
+                   default="oracle.spatial.network.lod.LODUserDataIOSDO"/>
+      <xsd:element name="cachingPolicy" type="cachingPolicy" nillable="false"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="cachingPolicy">
+    <xsd:sequence>
+      <xsd:element name="linkLevelCachingPolicy" type="linkLevelCachingPolicy"
+                   nillable="false" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>  
+  <xsd:complexType name="linkLevelCachingPolicy">
+    <xsd:sequence>
+      <xsd:element name="linkLevel" type="xsd:nonNegativeInteger"
+                   nillable="false" default="1"/>
+      <xsd:element name="maxNodes" type="xsd:nonNegativeInteger"
+                   nillable="false" default="500000"/>
+      <xsd:element name="residentPartitions" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="flushRule" type="xsd:string"
+                   nillable="false" minOccurs="0"
+                   default="oracle.spatial.network.lod.LRUCachingHandler"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

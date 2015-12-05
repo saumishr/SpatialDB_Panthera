@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<!--  $Header: sdo/jsrc/spatial/sdovis3d/Vis3DConfig.xml /main/7 2011/02/09 11:18:57 mhorhamm Exp $ -->
+
+<!-- 
+ Copyright (c) 2008, 2011, Oracle and/or its affiliates. All rights reserved. 
+
+   NAME
+     Vis3DConfig.xml - <one-line expansion of the name>
+
+   DESCRIPTION
+     <short description of component this file declares/defines>
+
+   NOTES
+     <other useful comments, qualifications, etc.>
+
+   MODIFIED   (MM/DD/YY)
+   mhorhamm    03/05/08 - Creation
+
+-->
+<vis3DConfig xmlns="http://xmlns.oracle.com/spatial/vis3d/2011/sdovis3d.xsd">
+  <defaultTexture>OracleSpatialBookLarge.jpg</defaultTexture>
+  <logos>
+    <logo>NavteqLogo.gif</logo>
+    <logo>TeleAtlasLogo.gif</logo>
+    <logo>DigitalGlobeLogo.jpg</logo>
+    <logo>OracleSpatialLogo.gif</logo>
+    <logo>OracleSpatialBook.jpg</logo>
+  </logos>
+  <icons>
+    <plusMinusIcon>PlusMinusIcon.gif</plusMinusIcon>
+    <fourDirectionsIcon>FourDirectionsIcon.gif</fourDirectionsIcon>
+  </icons>
+</vis3DConfig>
